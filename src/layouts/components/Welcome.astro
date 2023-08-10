@@ -1,0 +1,27 @@
+---
+import { markdownify } from "@lib/utils/textConverter";
+import { Image } from "@astrojs/image/components";
+import HomapageGallery from "@layouts/function-components/HomapageGallery";
+const { welcome } = Astro.props;
+const { title, description, gallery } = welcome;
+---
+
+<section
+  class="font-pacamara prose-headings:font-pacamara-space prose-headings:text-pacamara-dark prose-heading:transition-all prose-heading:duration-300 prose-p:text-pacamara-primary/50 container prose mx-auto max-w-screen-xl content-center px-7 py-10 lg:prose-xl prose-headings:mt-5 prose-headings:font-bold prose-h1:mt-0 prose-p:mb-0 prose-p:transition-all prose-p:duration-300 prose-img:mb-0 prose-img:mt-0 lg:prose-h1:text-6xl"
+>
+  <p set:html={markdownify(description)} />
+  <h1>
+    <span class="gradient-underline"
+      ><span set:html={markdownify(title)} /></span
+    >
+  </h1>
+  <Image
+    class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[30%]"
+    alt="banner"
+    src="/images/banner-shape.png"
+    width={496}
+    height={466}
+  />
+</section>
+
+<HomapageGallery gallery={gallery} />
