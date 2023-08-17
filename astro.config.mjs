@@ -22,8 +22,7 @@ export default defineConfig({
       content: [
         process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (for SSR, read the note below)
       ],
-    })
-  ],
+    }),
   prefetch({
     // Only prefetch links with an href that begins with `/products` or `/coupons`
     intentSelector: ["a[href^='/about']", "a[href^='/blog']", "a[href^='/blog.*']"],
