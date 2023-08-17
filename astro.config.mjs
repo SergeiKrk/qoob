@@ -8,9 +8,21 @@ import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
+import purgecss from 'astro-purgecss';
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [
+    purgecss({
+      fontFace: true,
+      keyframes: true,
+      safelist: ['random', 'yep', 'button', /^nav-/],
+      blocklist: ['usedClass', /^nav-/],
+      content: [
+        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (for SSR, read the note below)
+      ],
+    })
+  ],
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
