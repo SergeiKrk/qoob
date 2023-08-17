@@ -18,7 +18,15 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   integrations: [
     prefetch(),
-    purgecss(),
+    purgecss({
+      fontFace: true,
+      keyframes: true,
+      safelist: ['random', 'yep', 'button', /^nav-/],
+      blocklist: ['usedClass', /^nav-/],
+      content: [
+        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (for SSR, read the note below)
+      ],
+    }),
     react(),
     sitemap(),
     tailwind({
