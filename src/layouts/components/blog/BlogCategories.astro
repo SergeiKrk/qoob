@@ -7,7 +7,7 @@ const params = Astro.params;
 <div class="category-filter mb-10 mt-3 rounded-xl bg-[#EEEEEE] p-4">
   <ul class="filter-list flex flex-wrap items-center">
     <li>
-      <a
+      <a rel="prefetch-intent"
         class={`filter-btn ${
           !params.category ? "filter-btn-active" : undefined
         } btn btn-sm`}
@@ -17,7 +17,7 @@ const params = Astro.params;
     {
       categories.map((category: any) => (
         <li>
-          <a
+          <a rel="prefetch-intent"
             class={`filter-btn ${
               params.category === slugify(category)
                 ? "filter-btn-active"

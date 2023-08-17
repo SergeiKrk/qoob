@@ -23,13 +23,13 @@ const { posts } = Astro.props;
           <div class="card-content">
             <div class="card-tags space-x-1">
               {item.data.categories.map((category: any) => (
-                <a class="tag" href={`/categories/${slugify(category)}`}>
+                <a rel="prefetch-intent" class="tag" href={`/categories/${slugify(category)}`}>
                   {humanize(category)}
                 </a>
               ))}
             </div>
             <h3 class="h4 card-title">
-              <a href={`/blog/${item.slug}`}>{item.data.title}</a>
+              <a rel="prefetch-intent" href={`/blog/${item.slug}`}>{item.data.title}</a>
             </h3>
             <p class="mb-4 text-text">
               {plainify(item.body?.slice(0, Number(summary_length)))}...
