@@ -8,7 +8,6 @@ import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
-import purgecss from 'astro-purgecss';
 import prefetch from '@astrojs/prefetch';
 
 // https://astro.build/config
@@ -18,15 +17,6 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   integrations: [
     prefetch(),
-    purgecss({
-      fontFace: true,
-      keyframes: true,
-      safelist: ['random', 'yep', 'button', /^nav-/],
-      blocklist: ['usedClass', /^nav-/],
-      content: [
-        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (for SSR, read the note below)
-      ],
-    }),
     react(),
     sitemap(),
     tailwind({
