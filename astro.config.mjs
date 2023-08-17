@@ -1,4 +1,5 @@
 import image from "@astrojs/image";
+import prefetch from '@astrojs/prefetch';
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -23,6 +24,14 @@ export default defineConfig({
       ],
     })
   ],
+  prefetch({
+    // Only prefetch links with an href that begins with `/products` or `/coupons`
+    intentSelector: ["a[href^='/about']", "a[href^='/blog']", "a[href^='/blog.*']"],
+
+    // Use a string to prefetch a single selector
+    // intentSelector: "a[href^='/products']"
+  }),
+],
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
