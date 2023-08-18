@@ -1,7 +1,7 @@
 ---
 ##welcome
 welcome:
-  title: "qoop - журнал о дизайне интерьера загородных домов и квартир"
+  title: "Qoop - журнал о дизайне интерьера загородных домов и квартир"
   description: "Идеи для вашего дома, новости и тренды"
   gallery:
     - image: /images/banner-img.png
