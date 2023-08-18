@@ -23,20 +23,8 @@
 
   "footer": [
     {
-      "name": "About",
+      "name": "О нас",
       "url": "/about"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
-    },
-    {
-      "name": "Changelog",
-      "url": "/changelog"
     }
   ]
 }
